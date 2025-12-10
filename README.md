@@ -81,3 +81,44 @@ Change:
 ```bash
 OPENAI_API_KEY = "Put your api key here"
 ```
+# 📦 Usage
+1️⃣ Index your images
+
+Scan folders where your screenshots live:
+```bash
+python3 -m ssfinder.main index "$HOME/Desktop" "$HOME/Downloads" "$HOME/Pictures" --workers 6
+```
+- Use 4–8 workers for faster indexing
+- Already-indexed images are skipped automatically
+
+# Example output:
+```bash
+=== Indexing directory: /Users/user/Desktop ===
+Scanning for images under: /Users/user/Desktop
+Found 50 images so far...
+Found 143 images in /Users/user/Desktop. Indexing with 6 workers...
+[OK] ... | cat smiling at laptop
+[SKIP] ... | old screenshot
+```
+You only need to re-index when you get new screenshots.
+
+# 2️⃣ Search interactively
+```bash
+python3 -m ssfinder.main
+```
+Then describe what you remember:
+```bash
+Describe the image: kfc receipt screenshot from 6 months ago
+```
+Example:
+```bash
+1. /Users/user/Pictures/IMG_5421.jpg
+   Score:      0.7674
+   Caption:    kfc receipt showing multiple food items
+   Created at: 2025-01-10T22:32:11
+```
+
+# 🔐 Privacy
+- Images stay local
+- Only captions + embeddings stored in SQLite (images.db)
+- OpenAI only sees images during indexing for captioning/embedding
