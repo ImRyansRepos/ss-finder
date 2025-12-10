@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.sqlite3
+
+# Virtual envs
+venv/
+.env/
+.venv/
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Local DB and cache
+images.db
+*.db
+
+# Config with secrets (if you ever use it)
+config.py
