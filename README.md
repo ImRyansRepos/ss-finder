@@ -1,43 +1,83 @@
-# ssFinder 🖼️
+<div align="center">
 
-Search your screenshots and images on your computer by **describing them in plain text**.
+# 🖼️ ssFinder  
+### Search Your Screenshots by Memory
 
-> “A smiley face screenshot from 6 months ago”  
-> → ssFinder searches your indexed `.png` and `.jpg` files and shows the best matches with full file paths.
+Find images on your computer by **describing them in plain English**.
 
----
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+![Python](https://img.shields.io/badge/python-3.11-blue?logo=python)
+![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Windows-lightgrey)
 
-## Features
-
-- 🔍 Search screenshots by natural language
-- 🧠 Uses image captions + text embeddings for semantic search
-- 🗂 Works across multiple folders (Desktop, Downloads, Pictures, etc) in one index
-- 🕒 Rough time filtering from phrases like “from 6 months ago”
-- ⚡ Parallel indexing with worker threads for faster processing
+</div>
 
 ---
 
-## How it works
+### Imagine this:
 
-1. **Indexing phase**
-   - Walks the directories you choose
-   - For each `.png` / `.jpg`:
-     - Generates a short caption with a vision model
-     - Creates a text embedding from that caption
-   - Stores: file path, caption, created time, embedding in a local SQLite database (`images.db`)
+> “a screenshot of a KFC receipt from around 3 months ago”  
+> “my selfie with sunglasses”  
+> “a meme of a cat looking at a terminal window”  
+> “a crypto chart screenshot from last December”
 
-2. **Search phase**
-   - You describe the image you remember
-   - The query is embedded with the same embedding model
-   - Cosine similarity is computed between the query and all stored image embeddings
-   - Returns the top matches with paths, scores, and timestamps
+ssFinder searches your `.png`, `.jpg`, `.jpeg` images using **computer vision + embeddings**.  
+It doesn’t care about filenames — it understands **what’s in the picture**.
 
 ---
 
-## Setup
+## 🔥 Preview
 
-Clone the repo:
+> Coming soon:  
+> ✔ CLI screenshot previews  
+> ✔ Finder auto-open demonstration  
+
+*(You can add a GIF or screenshots here later!)*
+
+---
+
+## ✨ Features
+
+| Feature | Status |
+|--------|:-----:|
+| Local search by description | ✅ |
+| Works on multiple folders | ✅ |
+| Time-based filtering (“from 6 months ago”) | ✅ |
+| Parallel indexing for speed | ✅ |
+| Private — images stay local | ✅ |
+| Auto-skip already indexed files | ✅ |
+| Auto-open result in Finder / Explorer | 🔜 |
+| Inline image thumbnails | 🔜 |
+| GUI desktop app | 🔜 |
+
+---
+
+## 🛠 Requirements
+
+- macOS or Windows
+- Python **3.11**
+- OpenAI API key
+
+---
+
+## 🚀 Installation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ssfinder.git
-cd ssfinder
+git clone https://github.com/ImRyansRepos/ss-finder.git
+cd ss-finder
+```
+
+# Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+# 🔑 API Key Setup
+
+Edit:
+```bash
+ssfinder/config.py
+```
+Change:
+```bash
+OPENAI_API_KEY = "Put your api key here"
+```
