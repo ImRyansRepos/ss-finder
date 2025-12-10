@@ -1,0 +1,16 @@
+
+You can tweak the name, emoji, roadmap, etc.
+
+---
+
+## 8️⃣ Git commands to publish
+
+From the repo root (where `README.md` lives):
+
+```bash
+git init
+git add .
+git commit -m "Initial commit: ssFinder image search tool"
+git branch -M main
+git remote add origin git@github.com:YOUR_USERNAME/ssfinder.git
+git push -u origin main
